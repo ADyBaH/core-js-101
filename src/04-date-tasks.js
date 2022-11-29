@@ -80,14 +80,14 @@ function isLeapYear(date) {
 function timeSpanToString(startDate, endDate) {
   // throw new Error('Not implemented');
   const getTime = endDate - startDate;
-  const newDate = new Date((-3600000 * 3) + getTime);
+  const newDate = new Date(getTime);
   let miliseconds = newDate.getMilliseconds();
   if (miliseconds < 10) {
     miliseconds = `00${miliseconds}`;
   } else if (miliseconds >= 10 && miliseconds < 100) {
     miliseconds = `0${miliseconds}`;
   }
-  return `${newDate.toLocaleString().split(' ')[1]}.${miliseconds}`;
+  return `${newDate.toUTCString().split(' ')[4]}.${miliseconds}`;
 }
 
 
